@@ -8,5 +8,5 @@ sudo systemctl status nginx > testing.txt
 sudo apt -y install mariadb-server
 sudo systemctl start mariadb && sudo systemctl enable mariadb
 sudo systemctl status mariadb >> testing.txt
-sudo apt -y php.8.2-cli php php-cli php-common php-imap php-fpm php-snmp php-xml php-zip php-mbstring php-curl php-mysqli php-gd php-intl
+sudo apt install -y php php-cli php-common php-imap php-fpm php-snmp php-xml php-zip php-mbstring php-curl php-mysqli php-gd php-intl
 php -v >> testing.txt
