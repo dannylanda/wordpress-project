@@ -1,4 +1,5 @@
-# wordpress-project
-WordPress project for EPA
+# EPA Wordpress Project
 
-Automation & Unit Testing with the git-setup and lemp-setup
+So far this repo emcompasses Automation, using scripts to stand up web servers to my requirement instead of doing it manually, and also Unit Testing which is a part of our script to output if the scripts exceuted successfully. 
+
+The Git-Setup script automates the cloning of my repo with scripts inside
