@@ -40,4 +40,4 @@ cd /var/www/html/
 sudo mv index.html index.html.old
 
 sudo cd /root/ 
-sudo bash wordpress-install.sh
+sudo bash /root/wordpress-project/wordpress-install.sh/
