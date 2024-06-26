@@ -38,6 +38,3 @@ cd /var/www/html/
 
 # Rename the default Apache test page if it exists
 sudo mv index.html index.html.old
-
-sudo cd /root/ 
-sudo bash /root/wordpress-project/wordpress-install.sh/
