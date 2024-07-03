@@ -1,11 +1,5 @@
 #!/bin/bash 
 
-# Update the package list
-sudo apt -y update
-
-# Upgrade all installed packages to their latest versions
-sudo apt -y upgrade
-
 # Create a file to store the output of LEMP stack unit tests
 sudo touch /root/testing.txt
 
