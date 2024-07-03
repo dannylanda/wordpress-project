@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Update the package list
+sudo apt -y update
+
+# Upgrade all installed packages to their latest versions
+sudo apt -y upgrade
+
 # Install git package without prompting for confirmation
 sudo apt -y install git
 
