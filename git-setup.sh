@@ -7,7 +7,7 @@ sudo apt -y install git
 sudo git clone https://github.com/dannylanda/wordpress-project.git /root/wordpress-project
 
 # Change permissions of the cloned directory to read and execute for all users, and write for the owner
-sudo chmod -R 755 wordpress-project
+sudo chmod -R 755 /root/wordpress-project
 
 # Execute the lemp-setup.sh script from the cloned repository
 sudo bash wordpress-project/lemp-setup.sh
