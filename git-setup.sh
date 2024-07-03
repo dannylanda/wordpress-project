@@ -16,4 +16,4 @@ sudo git clone https://github.com/dannylanda/wordpress-project.git /root/wordpre
 sudo chmod -R 755 /root/wordpress-project
 
 # Execute the lemp-setup.sh script from the cloned repository
-sudo bash wordpress-project/lemp-setup.sh
+sudo bash /root/wordpress-project/lemp-setup.sh
