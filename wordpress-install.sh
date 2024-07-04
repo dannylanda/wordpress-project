@@ -10,7 +10,7 @@ sudo mysql -e "CREATE DATABASE IF NOT EXISTS wordpress"
 sudo mysql -e "CREATE USER IF NOT EXISTS wpuser@localhost identified by 'theweatherisnice'"
 sudo mysql -e "GRANT ALL PRIVILEGES ON wordpress.* to wpuser@localhost"
 sudo mysql -e "FLUSH PRIVILEGES"
-sudo wget -O /var/www/html/wp-config.php https://saxtonator-bucket.s3.amazonaws.com/wp-config.php
+sudo wget -O /var/www/html/wp-config.php https://dannylandawordpress.s3.amazonaws.com/wp-config.php
 sudo chmod 640 /var/www/html/wp-config.php 
 sudo chown -R www-data:www-data /var/www/html/
 # sudo cd /etc/nginx/conf.d/
