@@ -39,6 +39,9 @@ sudo chmod 640 /var/www/html/wp-config.php
 # Change the ownership of the html directory to the www-data user and group
 sudo chown -R www-data:www-data /var/www/html/
 
+# Reload NGINX for changes to take effect
+sudo systemctl reload nginx
+
 # Comments for the following commands (not currently executed)
 # Change to the nginx configuration directory
 # sudo cd /etc/nginx/conf.d/
