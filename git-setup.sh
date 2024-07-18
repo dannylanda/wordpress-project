@@ -33,7 +33,7 @@ check_exit_status "apt upgrade"
 
 # Clone the GitHub repository
 echo "Cloning GitHub repository..." | tee -a $LOG_FILE
-sudo git clone https://github.com/saxtonator/wordpress-project.git /root/wordpress-project
+sudo git clone https://github.com/dannylanda/wordpress-project.git /root/wordpress-project
 # Check if the git clone command succeeded or failed
 check_exit_status "git clone"
 
