@@ -49,3 +49,4 @@ sudo bash /root/wordpress-project/wordpress-install.sh
 
 nginx -t && systemctl reload nginx # this will only reload nginx if the test is successful
 
+sudo bash /root/wordpress-project/certbot-ssl-install.sh
