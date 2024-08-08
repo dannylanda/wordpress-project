@@ -12,7 +12,8 @@ EMAIL="danny.landa@apprentice.ua92.ac.uk"
 DOMAIN="wp.tasteofpunjabmcr.uk"
 
 # Use Certbot to obtain and install the SSL certificate for the specified domain
-sudo certbot --nginx --non-interactive --agree-tos --email $EMAIL -d $DOMAIN # if this doesn't work remove apache2 with purge
+sudo certbot --nginx --non-interactive --agree-tos --email $EMAIL -d $DOMAIN 
+#if this doesn't work remove apache2 with purge, and change SSL to full on Cloudflare afterwards
 
 # Nginx unit test that will reload Nginx to apply changes ONLY if the test is successful
 sudo nginx -t && sudo systemctl reload nginx
