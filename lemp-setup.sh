@@ -26,18 +26,26 @@ sudo apt -y install php php-cli php-common php-imap php-fpm php-snmp php-xml php
 # Check the PHP version and append it to the testing.txt file
 sudo php -v >> /root/testing.txt
 
+sudo systemctl stop apache2 # stops apache because we're aleady using nginx
+
+sudo systemctl disable apache2 # disables apache from starting on a server reboot
+
 # Rename the default Apache testing page
 sudo mv /var/www/html/index.html /var/www/html/index.html.old
 
 # Move the custom Nginx configuration file to the appropriate directory
 sudo mv /root/wordpress-project/nginx.conf /etc/nginx/conf.d/nginx.conf
 
+dns_record="wp.tasteofpunjabmcr.uk"
+
 # Retrieve the public IP of the server, format it, and store it in a variable
-dns_record=$(curl -s icanhazip.com | sed 's/^/ec2-/; s/\./-/g; s/$/.compute-1.amazonaws.com/')
+# dns_record=$(curl -s icanhazip.com | sed 's/^/ec2-/; s/\./-/g; s/$/.compute-1.amazonaws.com/')
 
 # Replace the placeholder SERVERNAME in the Nginx configuration file with the formatted DNS record
 sed -i "s/SERVERNAME/$dns_record/g" /etc/nginx/conf.d/nginx.conf
 
 # Run the WordPress installation script
 sudo bash /root/wordpress-project/wordpress-install.sh
-```
+
+nginx -t && systemctl reload nginx # this will only reload nginx if the test is successful
+
