@@ -30,6 +30,8 @@ sudo systemctl stop apache2 # stops apache because we're aleady using nginx
 
 sudo systemctl disable apache2 # disables apache from starting on a server reboot
 
+sudo apt remove --purge apache2
+
 # Rename the default Apache testing page
 sudo mv /var/www/html/index.html /var/www/html/index.html.old
 
