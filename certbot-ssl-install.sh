@@ -9,8 +9,7 @@ sudo apt install -y certbot python3-certbot-nginx
 EMAIL="danny.landa@apprentice.ua92.ac.uk"
 
 # Define your domain(s)
-DOMAIN="ap.tasteofpunjabmcr.uk"
-#DOMAIN="wp.tasteofpunjabmcr.uk"
+DOMAIN="wp.tasteofpunjabmcr.uk"
 
 # Use Certbot to obtain and install the SSL certificate for the specified domain
 sudo certbot --nginx --non-interactive --agree-tos --email $EMAIL -d $DOMAIN 
