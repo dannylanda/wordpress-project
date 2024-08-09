@@ -32,6 +32,7 @@ sudo mysql -e "FLUSH PRIVILEGES"
 
 # Download the WordPress configuration file from the specified S3 bucket
 sudo wget -O /var/www/html/wp-config.php https://dannylandawordpress.s3.amazonaws.com/wp-config.php
+#back up of old - sudo wget -O /var/www/html/wp-config.php https://dannylandawordpress.s3.amazonaws.com/wp-config.php
 
 # Set the permissions of the wp-config.php file to be readable and writable by the owner only
 sudo chmod 640 /var/www/html/wp-config.php 
