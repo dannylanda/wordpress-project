@@ -18,18 +18,11 @@ sudo rm /var/www/latest.zip
 # Move the WordPress files to the html directory
 sudo mv /var/www/wordpress /var/www/html 
 
-# Generate a random password for the WordPress database user using a mix of alphanumeric characters and symbols.
-password=$(tr -dc 'A-Za-z0-9!' < /dev/urandom | head -c 25)
-
 # Create a new MySQL database for WordPress if it doesn't already exist
 sudo mysql -e "CREATE DATABASE IF NOT EXISTS wordpress"
 
-# Create a new MySQL user 'wpuser' with the generated password if the user doesn't already exist.
-sudo mysql -e "CREATE USER IF NOT EXISTS wpuser@localhost identified by '$password'"
-
-# Backup
-# Create a new MySQL user for WordPress with a specified password
-#sudo mysql -e "CREATE USER IF NOT EXISTS wpuser@localhost identified by 'theweatherisnice'"
+#Create a new MySQL user for WordPress with a specified password
+sudo mysql -e "CREATE USER IF NOT EXISTS wpuser@localhost identified by 'password'"
 
 # Grant all privileges on the WordPress database to the newly created user
 sudo mysql -e "GRANT ALL PRIVILEGES ON wordpress.* to wpuser@localhost"
@@ -47,7 +40,7 @@ sudo chmod 640 /var/www/html/wp-config.php
 sudo chown -R www-data:www-data /var/www/html/
 
 # Replace the placeholder 'password_here' in wp-config.php with the generated password.
-sed -i "s/password_here/$password/g" /var/www/html/wp-config.php
+sed -i "s/password_here/password/g" /var/www/html/wp-config.php
 
 # Reload NGINX for changes to take effect
 # sudo systemctl reload nginx
