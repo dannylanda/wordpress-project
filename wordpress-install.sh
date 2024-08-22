@@ -41,7 +41,7 @@ sudo chmod 640 /var/www/html/wp-config.php
 sudo chown -R www-data:www-data /var/www/html/
 
 # Replace the placeholder 'password_here' in wp-config.php with the generated password.
-sed -i "s/password/password/g" /var/www/html/wp-config.php
+sed -i "s/password_here/password/g" /var/www/html/wp-config.php
 
 # Reload NGINX for changes to take effect
 # sudo systemctl reload nginx
