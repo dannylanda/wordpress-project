@@ -18,7 +18,7 @@ dns_record=$(curl -s icanhazip.com | sed 's/^/ec2-/; s/\./-/g; s/$/.compute-1.am
 sed -i "s/SERVERNAME/$dns_record/g" /etc/nginx/conf.d/nginx.conf
 
 # dns_record=$(curl -s icanhazip.com | sed 's/^/ec2-/; s/\./-/g; s/$/.compute-1.amazonaws.com/')
-my_domain=wp.tasteofpunjabmcr.uk
+my_domain="wp.tasteofpunjabmcr.uk"
 
 sed -i "s/SERVERNAME/$my_domain/g" /etc/nginx/conf.d/nginx.conf
 nginx -t && systemctl reload nginx # this will only reload nginx if the test is successful
