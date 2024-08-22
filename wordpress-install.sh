@@ -5,8 +5,6 @@ sudo wget -O /var/www/latest.zip https://wordpress.org/latest.zip
 sudo unzip /var/www/latest.zip -d /var/www/
 sudo rm /var/www/latest.zip
 sudo mv /var/www/wordpress /var/www/html 
-sudo mv /var/www/wordpress /var/www/html
-
 
 # sudo mariadb -u root
 sudo mysql -e "CREATE DATABASE IF NOT EXISTS wordpress"
