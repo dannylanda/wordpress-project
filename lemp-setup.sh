@@ -1,54 +1,25 @@
 #!/bin/bash
-# Create a file that will contain the output of our LEMP stack unit tests
-sudo touch /root/testing.txt
-
-# Install Nginx
+sudo touch /root/testing.txt # this file will contain the output of our LEMP stack unit tests
 sudo apt -y install nginx
-
-# Start and enable Nginx to start on server reboot. The second command runs only if the first command is successful.
-sudo systemctl start nginx && sudo systemctl enable nginx
-
-# Check the status of Nginx and write it to the testing.txt file
+sudo systemctl start nginx && sudo systemctl enable nginx # this starts and enables nginx on a server reboot. The 2nd command will only run if the first command is successful
 sudo systemctl status nginx > /root/testing.txt
-
-# Install MariaDB server
 sudo apt -y install mariadb-server
-
-# Start and enable MariaDB to start on server reboot
 sudo systemctl start mariadb && sudo systemctl enable mariadb
-
-# Check the status of MariaDB and append it to the testing.txt file
 systemctl status mariadb >> /root/testing.txt
-
-# Install PHP and various PHP modules
 sudo apt -y install php php-cli php-common php-imap php-fpm php-snmp php-xml php-zip php-mbstring php-curl php-mysqli php-gd php-intl
-
-# Check the PHP version and append it to the testing.txt file
 sudo php -v >> /root/testing.txt
-
 sudo systemctl stop apache2 # stops apache because we're aleady using nginx
-
 sudo systemctl disable apache2 # disables apache from starting on a server reboot
-
-sudo apt remove --purge apache2
-
-# Rename the default Apache testing page
-sudo mv /var/www/html/index.html /var/www/html/index.html.old
-
-# Move the custom Nginx configuration file to the appropriate directory
+# command to fully remove apache2
+# sudo apt remove --purge apache2
+sudo mv /var/www/html/index.html /var/www/html/index.html.old # rename apache testing page
 sudo mv /root/wordpress-project/nginx.conf /etc/nginx/conf.d/nginx.conf
-
-dns_record="wp.tasteofpunjabmcr.uk"
-
-# Retrieve the public IP of the server, format it, and store it in a variable
-# dns_record=$(curl -s icanhazip.com | sed 's/^/ec2-/; s/\./-/g; s/$/.compute-1.amazonaws.com/')
-
-# Replace the placeholder SERVERNAME in the Nginx configuration file with the formatted DNS record
+dns_record=$(curl -s icanhazip.com | sed 's/^/ec2-/; s/\./-/g; s/$/.compute-1.amazonaws.com/')
 sed -i "s/SERVERNAME/$dns_record/g" /etc/nginx/conf.d/nginx.conf
 
-# Run the WordPress installation script
-sudo bash /root/wordpress-project/wordpress-install.sh
+# dns_record=$(curl -s icanhazip.com | sed 's/^/ec2-/; s/\./-/g; s/$/.compute-1.amazonaws.com/')
+my_domain=wp.tasteofpunjabmcr.uk
 
+sed -i "s/SERVERNAME/$my_domain/g" /etc/nginx/conf.d/nginx.conf
 nginx -t && systemctl reload nginx # this will only reload nginx if the test is successful
-
 sudo bash /root/wordpress-project/certbot-ssl-install.sh
