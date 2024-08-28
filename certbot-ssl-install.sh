@@ -17,7 +17,7 @@ sudo systemctl stop apache2
 sudo apt purge apache2 -y
 sudo apt-get purge apache2* -y
 systemctl reload nginx.service 
-#if this doesn't work remove apache2 with purge, and change SSL to full on Cloudflare afterwards
+#if this doesn't work change SSL to full on Cloudflare afterwards
 
 # Nginx unit test that will reload Nginx to apply changes ONLY if the test is successful
 sudo nginx -t && sudo systemctl reload nginx
